@@ -1,9 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-double tanque1 = 0;
-double tanque2 = 0;
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -27,6 +24,9 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+extern double tanque1;
+extern double tanque2;
 
 extern uint8_t pin_s11;
 extern uint8_t pin_s12;

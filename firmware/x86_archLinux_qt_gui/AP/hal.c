@@ -8,7 +8,12 @@ uint8_t pin_s21;
 uint8_t pin_s22;
 uint8_t pin_pump;
 
+double tanque1;
+double tanque2;
+
 void InitHAL(){
+    tanque1 = 80;
+    tanque2 = 0;
     pin_v1 = 0;
     pin_s11 = 0;
     pin_s12 = 0;
