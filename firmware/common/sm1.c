@@ -28,5 +28,5 @@ STATE(sm1_v1_desligada){
 }
 
 STATE(sm1_v1_erro){
-    v1(-1);
+    v1(0);
 }

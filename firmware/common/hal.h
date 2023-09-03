@@ -13,4 +13,8 @@ uint8_t s11();
 uint8_t s12();
 void v1(uint8_t signal);
 
+uint8_t s21();
+uint8_t s22();
+void pump(uint8_t signal);
+
 #endif //INC_20230901_HAL_H

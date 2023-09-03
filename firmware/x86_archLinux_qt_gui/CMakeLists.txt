@@ -35,7 +35,9 @@ add_executable(20230902_x86_archLinux_qt_gui
         AP/mainwindow.cpp
         AP/mainwindow.h
         AP/threadbehavior.cpp
-        AP/threadbehavior.h)
+        AP/threadbehavior.h
+        ../common/sm2.c
+        ../common/sm2.h)
 
 # Link the lib to the executable
 target_link_libraries(20230902_x86_archLinux_qt_gui Qt5::Core Qt5::Widgets)
