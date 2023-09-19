@@ -4,6 +4,7 @@
 
 #include "sm2.h"
 #include "hal.h"
+#include "time.h"
 
 STATE(sm2_init){
     pump(0);

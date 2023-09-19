@@ -67,3 +67,7 @@ uint8_t s32(){
 void v2(uint8_t signal){
     pin_v2 = signal;
 }
+
+uint64_t now(){
+    return clock()/1000;
+}
