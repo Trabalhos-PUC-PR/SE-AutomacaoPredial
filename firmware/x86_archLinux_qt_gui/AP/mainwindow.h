@@ -27,5 +27,7 @@ private:
 public slots:
     void atualiza_interface();
     void processo_fisico();
+    void drainT3();
+    void congela();
 };
 #endif // MAINWINDOW_H

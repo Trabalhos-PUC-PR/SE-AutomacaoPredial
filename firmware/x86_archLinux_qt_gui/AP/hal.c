@@ -8,12 +8,18 @@ uint8_t pin_s21;
 uint8_t pin_s22;
 uint8_t pin_pump;
 
+uint8_t pin_v2;
+uint8_t pin_s31;
+uint8_t pin_s32;
+
 double tanque1;
 double tanque2;
+double tanque3;
 
 void InitHAL(){
-    tanque1 = 80;
+    tanque1 = 0;
     tanque2 = 0;
+    tanque3 = 0;
     pin_v1 = 0;
     pin_s11 = 0;
     pin_s12 = 0;
@@ -48,4 +54,16 @@ uint8_t s22(){
 
 void pump(uint8_t signal){
     pin_pump = signal;
+}
+
+uint8_t s31(){
+    return pin_s31;
+}
+
+uint8_t s32(){
+    return pin_s32;
+}
+
+void v2(uint8_t signal){
+    pin_v2 = signal;
 }

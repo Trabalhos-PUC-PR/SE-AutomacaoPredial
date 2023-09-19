@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>824</width>
-    <height>432</height>
+    <width>1043</width>
+    <height>450</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -134,10 +134,10 @@
    <widget class="QLabel" name="label_s21">
     <property name="geometry">
      <rect>
-      <x>780</x>
+      <x>430</x>
       <y>150</y>
-      <width>58</width>
-      <height>18</height>
+      <width>21</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
@@ -147,7 +147,7 @@
    <widget class="Led" name="toolButton_s21">
     <property name="geometry">
      <rect>
-      <x>740</x>
+      <x>390</x>
       <y>140</y>
       <width>33</width>
       <height>34</height>
@@ -160,8 +160,8 @@
    <widget class="Led" name="toolButton_s22">
     <property name="geometry">
      <rect>
-      <x>740</x>
-      <y>30</y>
+      <x>390</x>
+      <y>20</y>
       <width>33</width>
       <height>34</height>
      </rect>
@@ -186,10 +186,10 @@
    <widget class="QLabel" name="label_s22">
     <property name="geometry">
      <rect>
-      <x>780</x>
-      <y>40</y>
-      <width>58</width>
-      <height>18</height>
+      <x>430</x>
+      <y>30</y>
+      <width>21</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
@@ -261,14 +261,183 @@
      <string>AP - Reservas de agua</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_t1_volume">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>290</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>t1Volume</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_t2_volume">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>70</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>t2Volume</string>
+    </property>
+   </widget>
+   <widget class="cedaTank" name="toolButton_tanque3">
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>100</y>
+      <width>151</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line_3">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>110</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Led" name="toolButton_v2">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>80</y>
+      <width>31</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_s21_2">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>60</y>
+      <width>21</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>v2</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_t3">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>130</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>t3</string>
+    </property>
+   </widget>
+   <widget class="Led" name="toolButton_s32">
+    <property name="geometry">
+     <rect>
+      <x>930</x>
+      <y>60</y>
+      <width>33</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_s31">
+    <property name="geometry">
+     <rect>
+      <x>970</x>
+      <y>190</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>s31</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_s32">
+    <property name="geometry">
+     <rect>
+      <x>970</x>
+      <y>70</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>s32</string>
+    </property>
+   </widget>
+   <widget class="Led" name="toolButton_s31">
+    <property name="geometry">
+     <rect>
+      <x>930</x>
+      <y>180</y>
+      <width>33</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_drain_t3">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>280</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Drenar t3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_pause">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>310</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pause</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>824</width>
-     <height>30</height>
+     <width>1043</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>
