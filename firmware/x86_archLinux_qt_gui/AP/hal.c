@@ -12,6 +12,9 @@ uint8_t pin_v2;
 uint8_t pin_s31;
 uint8_t pin_s32;
 
+uint8_t pin_b1;;
+uint8_t tmp_b1;
+
 double tanque1;
 double tanque2;
 double tanque3;
@@ -70,4 +73,8 @@ void v2(uint8_t signal){
 
 uint64_t now(){
     return clock()/1000;
+}
+
+uint16_t valvePause(){
+    return 5000;
 }

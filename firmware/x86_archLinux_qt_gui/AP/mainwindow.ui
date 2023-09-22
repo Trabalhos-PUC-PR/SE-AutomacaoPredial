@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1043</width>
+    <width>1087</width>
     <height>450</height>
    </rect>
   </property>
@@ -251,8 +251,8 @@
    <widget class="QLabel" name="label_desc">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>250</y>
+      <x>900</x>
+      <y>330</y>
       <width>171</width>
       <height>71</height>
      </rect>
@@ -430,14 +430,222 @@
      <string>Pause</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_v1_state">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>260</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>v1_state</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_s11_state">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>330</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>s11_state</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_s12_state">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>230</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>s12_state</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_t1_state">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>290</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>t1_state</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_p1_state">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>80</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>p1_state</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_v1_state_2">
+    <property name="geometry">
+     <rect>
+      <x>-140</x>
+      <y>90</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>v1_state</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_t2_state">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>70</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>t2_state</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_s21_state">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>140</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>s21_state</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_s22_state">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>20</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>s22_state</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_v2_state">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>60</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>v2_state</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_s32_state">
+    <property name="geometry">
+     <rect>
+      <x>1000</x>
+      <y>70</y>
+      <width>58</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>s32_state</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_t3_state">
+    <property name="geometry">
+     <rect>
+      <x>960</x>
+      <y>130</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>t3_state</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_s31_state">
+    <property name="geometry">
+     <rect>
+      <x>990</x>
+      <y>190</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>s31_state</string>
+    </property>
+   </widget>
+   <widget class="Led" name="toolButton_b1">
+    <property name="geometry">
+     <rect>
+      <x>830</x>
+      <y>180</y>
+      <width>33</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_b1">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>190</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>b1</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_b1_state">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>220</y>
+      <width>58</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>b1_state</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1043</width>
-     <height>22</height>
+     <width>1087</width>
+     <height>30</height>
     </rect>
    </property>
   </widget>

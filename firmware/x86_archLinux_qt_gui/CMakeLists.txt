@@ -41,7 +41,9 @@ add_executable(20230902_x86_archLinux_qt_gui
         ../common/sm3.c
         ../common/sm3.h
         ../common/chrono.h
-        ../common/chrono.c)
+        ../common/chrono.c
+        ../common/sm4.c
+        ../common/sm4.h)
 
 # Link the lib to the executable
 target_link_libraries(20230902_x86_archLinux_qt_gui Qt5::Core Qt5::Widgets)

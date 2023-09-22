@@ -1,6 +1,8 @@
 #ifndef SM_H
 #define SM_H
 
+#include "chrono.h"
+
 // ponteiro de nome <pFuncao> que deve receber uma função com um parametro (endereço)
 typedef void (*pFuncao)(void *);
 

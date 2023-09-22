@@ -12,6 +12,7 @@ uint32_t Now();
 uint8_t s11();
 uint8_t s12();
 void v1(uint8_t signal);
+uint16_t valvePause();
 
 uint8_t s21();
 uint8_t s22();

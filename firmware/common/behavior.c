@@ -13,7 +13,8 @@ void behavior(){
     InitHAL();
     INIT(sm1, sm1_init);
     INIT(sm2, sm2_init);
-    INIT(sm3, sm3_init)
+    INIT(sm3, sm3_init);
+
     while(1){
         EXEC(sm1);
         EXEC(sm2);

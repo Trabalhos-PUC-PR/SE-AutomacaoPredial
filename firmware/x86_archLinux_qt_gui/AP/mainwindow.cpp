@@ -36,12 +36,14 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+#define t2_to_t3_ratio 2
 #define Sx1Threshold 10
 #define Sx2Threshold 90
 #define pumpFlowRate 5
 #define boilRate .04
-#define valveFlowRate .1
+#define valve1FlowRate .3
 #define forceWaterLimit(tank)  tank = (tank > 100) ? 100 : tank
+#define waterDifferenceMargin .5
 
 extern double tanque1;
 extern double tanque2;
@@ -89,9 +91,18 @@ void MainWindow::atualiza_interface(){
     ui->toolButton_tanque2->setValue((int) tanque2);
     ui->toolButton_tanque3->setValue((int) tanque3);
 
-//    ui->label_pump->setText(QString::number(pin_pump));
-//    ui->label_tanque1->setText(QString::number(tanque1));
-//    ui->label_tanque2->setText(QString::number(tanque2));
+    ui->label_p1_state->setText(QString::number(pin_pump));
+    ui->label_v1_state->setText(QString::number(pin_v1));
+    ui->label_v2_state->setText(QString::number(pin_v2));
+    ui->label_t1_state->setText(QString::number(tanque1));
+    ui->label_t2_state->setText(QString::number(tanque2));
+    ui->label_t3_state->setText(QString::number(tanque3));
+    ui->label_s11_state->setText(QString::number(pin_s11));
+    ui->label_s12_state->setText(QString::number(pin_s12));
+    ui->label_s21_state->setText(QString::number(pin_s21));
+    ui->label_s22_state->setText(QString::number(pin_s22));
+    ui->label_s31_state->setText(QString::number(pin_s31));
+    ui->label_s32_state->setText(QString::number(pin_s32));
 }
 
 void MainWindow::processo_fisico(){
@@ -99,7 +110,7 @@ void MainWindow::processo_fisico(){
     if(freeze) return;
 
     if(pin_v1){
-        tanque1 += valveFlowRate;
+        tanque1 += valve1FlowRate;
         forceWaterLimit(tanque1);
     }
 
@@ -109,22 +120,22 @@ void MainWindow::processo_fisico(){
         forceWaterLimit(tanque1);
     }
 
-    if(!pin_s32 && pin_v2 && tanque2 > tanque3/2){
+    if(!pin_s32 && pin_v2 && tanque2 > tanque3/t2_to_t3_ratio+waterDifferenceMargin){
         tanque2 -= 1;
-        tanque3 += 4;
+        tanque3 += t2_to_t3_ratio;
         forceWaterLimit(tanque3);
     }
-    else if(pin_v2 && tanque2 < tanque3/2){
+    else if(pin_v2 && tanque2 < tanque3/t2_to_t3_ratio-waterDifferenceMargin){
         tanque2 += 1;
-        tanque3 -= 4;
+        tanque3 -= t2_to_t3_ratio;
         forceWaterLimit(tanque2);
     }
 
 
-    if(tanque1 > 0) // Evaporação
+    if(tanque1 > 0+boilRate) // Evaporação
         tanque1 -= boilRate;
 
-    if(tanque2 > 0) // Evaporação
+    if(tanque2 > 0+boilRate) // Evaporação
         tanque2 -= boilRate;
 
     // sensores
