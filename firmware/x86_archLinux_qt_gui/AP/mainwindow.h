@@ -27,6 +27,7 @@ private:
 public slots:
     void atualiza_interface();
     void processo_fisico();
+    void drainT2();
     void drainT3();
     void congela();
 };

@@ -12,6 +12,11 @@ MainWindow::MainWindow(QWidget *parent)
             SLOT(atualiza_interface()));
     timer_ui.start(1);
 
+    connect(ui->pushButton_drain_t2,
+            SIGNAL(released()),
+            this,
+            SLOT(drainT2()));
+
     connect(ui->pushButton_drain_t3,
              SIGNAL(released()),
              this,
@@ -36,18 +41,23 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-#define t2_to_t3_ratio 2
+#define t2_to_t3_ratio 4
 #define Sx1Threshold 10
 #define Sx2Threshold 90
 #define pumpFlowRate 5
-#define boilRate .04
+#define valorizationRate .04
 #define valve1FlowRate .3
 #define forceWaterLimit(tank)  tank = (tank > 100) ? 100 : tank
-#define waterDifferenceMargin .5
+#define waterDifferenceMargin 1
+#define SBx1Threshold 25
+#define SBx2Threshold 50
+#define boilerTempDecay .1
+#define boilerTempIncrease .3
 
 extern double tanque1;
 extern double tanque2;
 extern double tanque3;
+extern double temp;
 
 extern uint8_t pin_s11;
 extern uint8_t pin_s12;
@@ -61,6 +71,10 @@ extern uint8_t pin_s31;
 extern uint8_t pin_s32;
 extern uint8_t pin_v2;
 
+extern uint8_t pin_sb11;
+extern uint8_t pin_sb12;
+extern uint8_t pin_b1;
+
 uint8_t freeze = 0;
 
 void MainWindow::congela(){
@@ -69,6 +83,10 @@ void MainWindow::congela(){
         ui->pushButton_pause->setText("Resume") :
         ui->pushButton_pause->setText("Pause");
 }
+
+void MainWindow::drainT2(){
+    tanque2 = 0;
+};
 
 void MainWindow::drainT3(){
     tanque3 = 0;
@@ -103,11 +121,24 @@ void MainWindow::atualiza_interface(){
     ui->label_s22_state->setText(QString::number(pin_s22));
     ui->label_s31_state->setText(QString::number(pin_s31));
     ui->label_s32_state->setText(QString::number(pin_s32));
+
+    ui->toolButton_b1->setPower(pin_b1);
+    ui->toolButton_sb11->setPower(pin_sb11);
+    ui->toolButton_sb12->setPower(pin_sb12);
+    ui->label_b1_state->setText(QString::number(temp));
+
+    ui->toolButton_b1->setPower(pin_b1);
 }
 
 void MainWindow::processo_fisico(){
 
     if(freeze) return;
+
+    if(pin_b1){
+        temp += boilerTempIncrease;
+    }else{
+        temp -= boilerTempDecay;
+    }
 
     if(pin_v1){
         tanque1 += valve1FlowRate;
@@ -132,11 +163,11 @@ void MainWindow::processo_fisico(){
     }
 
 
-    if(tanque1 > 0+boilRate) // Evaporação
-        tanque1 -= boilRate;
+    if(tanque1 > 0 + valorizationRate) // Evaporação
+        tanque1 -= valorizationRate;
 
-    if(tanque2 > 0+boilRate) // Evaporação
-        tanque2 -= boilRate;
+    if(tanque2 > 0 + valorizationRate) // Evaporação
+        tanque2 -= valorizationRate;
 
     // sensores
 
@@ -148,4 +179,7 @@ void MainWindow::processo_fisico(){
 
     pin_s31 = (tanque3>Sx1Threshold);
     pin_s32 = (tanque3>Sx2Threshold);
+
+    pin_sb11 = temp > SBx1Threshold;
+    pin_sb12 = temp > SBx2Threshold - boilerTempDecay;
 }

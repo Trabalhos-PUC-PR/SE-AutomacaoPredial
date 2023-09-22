@@ -22,6 +22,11 @@ uint8_t s31();
 uint8_t s32();
 void v2(uint8_t signal);
 
+uint8_t sb11();
+uint8_t sb12();
+void boiler(uint8_t signal);
+
 uint64_t now();
+
 
 #endif //INC_20230901_HAL_H

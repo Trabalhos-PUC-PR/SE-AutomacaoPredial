@@ -12,12 +12,15 @@ uint8_t pin_v2;
 uint8_t pin_s31;
 uint8_t pin_s32;
 
-uint8_t pin_b1;;
-uint8_t tmp_b1;
+uint8_t pin_b1;
+uint8_t pin_sb11;
+uint8_t pin_sb12;
 
+double temp;
 double tanque1;
 double tanque2;
 double tanque3;
+
 
 void InitHAL(){
     tanque1 = 0;
@@ -29,6 +32,11 @@ void InitHAL(){
     pin_s21 = 0;
     pin_s22 = 0;
     pin_pump = 0;
+
+    temp = 0;
+    pin_b1 = 0;
+    pin_sb11 = 0;
+    pin_sb12 = 0;
 }
 
 uint32_t Now(){
@@ -77,4 +85,16 @@ uint64_t now(){
 
 uint16_t valvePause(){
     return 5000;
+}
+
+uint8_t sb11(){
+    return pin_sb11;
+}
+
+uint8_t sb12(){
+    return pin_sb12;
+}
+
+void boiler(uint8_t signal){
+    pin_b1 = signal;
 }
