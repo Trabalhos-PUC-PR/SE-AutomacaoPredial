@@ -124,7 +124,7 @@
       <x>460</x>
       <y>30</y>
       <width>271</width>
-      <height>141</height>
+      <height>140</height>
      </rect>
     </property>
     <property name="text">
@@ -394,7 +394,7 @@
    <widget class="QPushButton" name="pushButton_drain_t3">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>800</x>
       <y>320</y>
       <width>80</width>
       <height>25</height>
@@ -407,7 +407,7 @@
    <widget class="QPushButton" name="pushButton_pause">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>800</x>
       <y>350</y>
       <width>80</width>
       <height>25</height>
@@ -681,9 +681,9 @@
     <property name="geometry">
      <rect>
       <x>780</x>
-      <y>130</y>
+      <y>100</y>
       <width>151</width>
-      <height>41</height>
+      <height>70</height>
      </rect>
     </property>
     <property name="text">
@@ -693,7 +693,7 @@
    <widget class="QPushButton" name="pushButton_drain_t2">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>800</x>
       <y>290</y>
       <width>80</width>
       <height>25</height>
@@ -701,6 +701,162 @@
     </property>
     <property name="text">
      <string>Drenar t2</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_t2_h">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>220</y>
+      <width>58</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>t2_h</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_t3_w">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>200</y>
+      <width>58</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>t3_w</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_t2_w">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>200</y>
+      <width>58</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>t2_w</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_t3_h">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>220</y>
+      <width>58</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>t3_h</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_extra2">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>260</y>
+      <width>58</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>extra2</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_extra1">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>260</y>
+      <width>58</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>extra1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_teste1">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>360</y>
+      <width>51</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Teste1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_teste2">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>360</y>
+      <width>51</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Teste2</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_teste4">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>360</y>
+      <width>51</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Teste4</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_teste3">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>360</y>
+      <width>51</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Teste3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_teste6">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>360</y>
+      <width>51</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Teste6</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_teste5">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>360</y>
+      <width>51</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Teste5</string>
     </property>
    </widget>
   </widget>

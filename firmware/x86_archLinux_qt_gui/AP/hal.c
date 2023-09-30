@@ -24,8 +24,8 @@ double tanque3;
 
 void InitHAL(){
     tanque1 = 0;
-    tanque2 = 0;
-    tanque3 = 0;
+    tanque2 = 25;
+    tanque3 = 100;
     pin_v1 = 0;
     pin_s11 = 0;
     pin_s12 = 0;
