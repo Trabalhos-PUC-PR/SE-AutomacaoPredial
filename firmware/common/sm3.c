@@ -14,7 +14,7 @@ STATE(sm3_init){
 
 STATE(sm3_v2_ligada){
     v2(1);
-    if(s32() && !s21()){
+    if(s32()){
         start_chronometer(&c3, valvePause());
         NEXT_STATE(sm3_v2_desligada);
     }
@@ -22,7 +22,7 @@ STATE(sm3_v2_ligada){
 
 STATE(sm3_v2_desligada){
     v2(0);
-    if(is_finished_chronometer(&c3) && (!s32() || !s22()) && s21()){
+    if(is_finished_chronometer(&c3) && !s32() &&s21()){
         NEXT_STATE(sm3_v2_ligada);
     }
 }

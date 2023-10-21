@@ -27,30 +27,30 @@ MainWindow::MainWindow(QWidget *parent)
             this,
             SLOT(congela()));
 
-    connect(ui->pushButton_teste1,
+    connect(ui->pushButton_plus_t1,
             SIGNAL(released()),
             this,
-            SLOT(teste1()));
-    connect(ui->pushButton_teste2,
+            SLOT(add5_to_T1()));
+    connect(ui->pushButton_plus_t2,
             SIGNAL(released()),
             this,
-            SLOT(teste2()));
-    connect(ui->pushButton_teste3,
+            SLOT(add5_to_T2()));
+    connect(ui->pushButton_plus_t3,
             SIGNAL(released()),
             this,
-            SLOT(teste3()));
-    connect(ui->pushButton_teste4,
+            SLOT(add5_to_T3()));
+    connect(ui->pushButton_minus_t1,
             SIGNAL(released()),
             this,
-            SLOT(teste4()));
-    connect(ui->pushButton_teste5,
+            SLOT(remove5_from_T1()));
+    connect(ui->pushButton_minus_t2,
             SIGNAL(released()),
             this,
-            SLOT(teste5()));
-    connect(ui->pushButton_teste6,
+            SLOT(remove5_from_T2()));
+    connect(ui->pushButton_minus_t3,
             SIGNAL(released()),
             this,
-            SLOT(teste6()));
+            SLOT(remove5_from_T3()));
 
     connect(&timer_processo_fisico,
             SIGNAL(timeout()),
@@ -65,19 +65,19 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-#define t2_t3_height_proportion (ui->toolButton_tanque2->height() > ui->toolButton_tanque3->height()) ? ui->toolButton_tanque2->height()/ui->toolButton_tanque3->height() : ui->toolButton_tanque3->height()/ui->toolButton_tanque2->height()
-#define t2_t3_tranfer_proportion 4 // t3 = t2/4
+#define t2_to_t3_transfer 0.2
+#define t2_to_t3_proportion 4
 #define Sx1Threshold 10
-#define Sx2Threshold 90
+#define Sx2Threshold 99
 #define pumpFlowRate 5
-#define valorizationRate 0//.04
+#define vaporizationRate 0//.04
 #define valve1FlowRate .3
 #define forceWaterLimit(tank)  tank = (tank > 100) ? 100 : tank
-#define waterDifferenceMargin 2
-#define SBx1Threshold 25
-#define SBx2Threshold 50
-#define boilerTempDecay .1
-#define boilerTempIncrease .3
+#define forceWaterMin(tank)  tank = (tank < 0) ? 0 : tank
+#define SBx1Threshold 49
+#define SBx2Threshold 51
+#define boilerTempDecay .05
+#define boilerTempIncrease .009
 
 extern double tanque1;
 extern double tanque2;
@@ -100,8 +100,6 @@ extern uint8_t pin_sb11;
 extern uint8_t pin_sb12;
 extern uint8_t pin_b1;
 
-uint8_t shouldLevel = 1;
-
 uint8_t freeze = 0;
 
 void MainWindow::congela(){
@@ -119,35 +117,29 @@ void MainWindow::drainT3(){
     tanque3 = 0;
 };
 
-void MainWindow::teste1(){
-    tanque1 = 0;
-    tanque2 = 100;
-    tanque3 = 0;
+void MainWindow::add5_to_T1(){
+    tanque1 += 5;
+    forceWaterLimit(tanque1);
 }
-void MainWindow::teste2(){
-    tanque1 = 0;
-    tanque2 = 80;
-    tanque3 = 0;
+void MainWindow::add5_to_T2(){
+    tanque2 += 5;
+    forceWaterLimit(tanque2);
 }
-void MainWindow::teste3(){
-    tanque1 = 0;
-    tanque2 = 40;
-    tanque3 = 0;
+void MainWindow::add5_to_T3(){
+    tanque3 += 5;
+    forceWaterLimit(tanque3);
 }
-void MainWindow::teste4(){
-    tanque1 = 0;
-    tanque2 = 30;
-    tanque3 = 0;
+void MainWindow::remove5_from_T1(){
+    tanque1 -= 5;
+    forceWaterMin(tanque1);
 }
-void MainWindow::teste5(){
-    tanque1 = 0;
-    tanque2 = 0;
-    tanque3 = 100;
+void MainWindow::remove5_from_T2(){
+    tanque2 -= 5;
+    forceWaterMin(tanque2);
 }
-void MainWindow::teste6(){
-    tanque1 = 0;
-    tanque2 = 20;
-    tanque3 = 100;
+void MainWindow::remove5_from_T3(){
+    tanque3 -= 5;
+    forceWaterMin(tanque3);
 }
 
 void MainWindow::atualiza_interface(){
@@ -165,7 +157,7 @@ void MainWindow::atualiza_interface(){
 
     ui->toolButton_tanque1->setValue((int) tanque1);
     ui->toolButton_tanque2->setValue((int) tanque2);
-    ui->toolButton_tanque3->setValue((int) tanque3 * (t2_t3_height_proportion));
+    ui->toolButton_tanque3->setValue((int) tanque3);
 
     ui->label_p1_state->setText(QString::number(pin_pump));
     ui->label_v1_state->setText(QString::number(pin_v1));
@@ -185,7 +177,7 @@ void MainWindow::atualiza_interface(){
     ui->label_t3_w->setText(QString::number(ui->toolButton_tanque3->width()));
     ui->label_t3_h->setText(QString::number(ui->toolButton_tanque3->height()));
 
-    ui->label_extra1->setText(QString::number(t2_t3_height_proportion));
+    ui->label_extra1->setText(QString::number(t2_to_t3_proportion));
 
     ui->toolButton_b1->setPower(pin_b1);
     ui->toolButton_sb11->setPower(pin_sb11);
@@ -196,6 +188,12 @@ void MainWindow::atualiza_interface(){
 }
 
 void MainWindow::processo_fisico(){
+
+    pin_s21 = (tanque2>Sx1Threshold);
+    pin_s22 = (tanque2>Sx2Threshold);
+
+    pin_s31 = (tanque3>Sx1Threshold);
+    pin_s32 = (tanque3>Sx2Threshold);
 
     if(freeze) return;
 
@@ -216,23 +214,25 @@ void MainWindow::processo_fisico(){
         forceWaterLimit(tanque1);
     }
 
-    // t2 -> t3
-    if(pin_v2 && ( (pin_s21 && !pin_s32) && ( (tanque2 > tanque3+1) || tanque2 > 50 ) ) ){
-        tanque2 -= 1;
-        tanque3 += (t2_t3_height_proportion)*2;
-        forceWaterLimit(tanque3);
-    // t3 -> t2
-    }else if(pin_v2 && ( (pin_s31 && !pin_s22) && ( (tanque3 > tanque2+1) && tanque2 < 50 ) ) ){
-        tanque2 += 1;
-        tanque3 -= (t2_t3_height_proportion)*2;
-        forceWaterLimit(tanque2);
+    if(pin_v2) {
+        // t2 -> t3
+        if (tanque2 > tanque3 / 2) {
+            tanque2 -= t2_to_t3_transfer;
+            tanque3 += t2_to_t3_transfer * t2_to_t3_proportion;
+            forceWaterLimit(tanque3);
+            // t3 -> t2
+        } else {
+            tanque2 += t2_to_t3_transfer;
+            tanque3 -= t2_to_t3_transfer * t2_to_t3_proportion;
+            forceWaterLimit(tanque2);
+        }
     }
 
-    if(tanque1 > 0 + valorizationRate) // Evaporação
-        tanque1 -= valorizationRate;
+    if(tanque1 > 0 + vaporizationRate) // Evaporação
+        tanque1 -= vaporizationRate;
 
-    if(tanque2 > 0 + valorizationRate) // Evaporação
-        tanque2 -= valorizationRate;
+    if(tanque2 > 0 + vaporizationRate) // Evaporação
+        tanque2 -= vaporizationRate;
 
     // sensores
 
@@ -246,5 +246,5 @@ void MainWindow::processo_fisico(){
     pin_s32 = (tanque3>Sx2Threshold);
 
     pin_sb11 = temp > SBx1Threshold;
-    pin_sb12 = temp > SBx2Threshold - boilerTempDecay;
+    pin_sb12 = temp > SBx2Threshold;
 }

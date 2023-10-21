@@ -30,11 +30,11 @@ public slots:
     void drainT2();
     void drainT3();
     void congela();
-    void teste1();
-    void teste2();
-    void teste3();
-    void teste4();
-    void teste5();
-    void teste6();
+    void add5_to_T1();
+    void add5_to_T2();
+    void add5_to_T3();
+    void remove5_from_T1();
+    void remove5_from_T2();
+    void remove5_from_T3();
 };
 #endif // MAINWINDOW_H

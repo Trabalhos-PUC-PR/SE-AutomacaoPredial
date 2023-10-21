@@ -781,82 +781,82 @@
      <string>extra1</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_teste1">
-    <property name="geometry">
-     <rect>
-      <x>480</x>
-      <y>360</y>
-      <width>51</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Teste1</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_teste2">
+   <widget class="QPushButton" name="pushButton_plus_t1">
     <property name="geometry">
      <rect>
       <x>530</x>
-      <y>360</y>
+      <y>310</y>
       <width>51</width>
       <height>25</height>
      </rect>
     </property>
     <property name="text">
-     <string>Teste2</string>
+     <string>+5 T1</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_teste4">
+   <widget class="QPushButton" name="pushButton_minus_t1">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>360</y>
+      <x>530</x>
+      <y>340</y>
       <width>51</width>
       <height>25</height>
      </rect>
     </property>
     <property name="text">
-     <string>Teste4</string>
+     <string>-5 T1</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_teste3">
+   <widget class="QPushButton" name="pushButton_minus_t2">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>360</y>
+      <x>590</x>
+      <y>340</y>
       <width>51</width>
       <height>25</height>
      </rect>
     </property>
     <property name="text">
-     <string>Teste3</string>
+     <string>-5 T2</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_teste6">
+   <widget class="QPushButton" name="pushButton_plus_t2">
     <property name="geometry">
      <rect>
-      <x>730</x>
-      <y>360</y>
+      <x>590</x>
+      <y>310</y>
       <width>51</width>
       <height>25</height>
      </rect>
     </property>
     <property name="text">
-     <string>Teste6</string>
+     <string>+5 T2</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_teste5">
+   <widget class="QPushButton" name="pushButton_minus_t3">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>360</y>
+      <x>650</x>
+      <y>340</y>
       <width>51</width>
       <height>25</height>
      </rect>
     </property>
     <property name="text">
-     <string>Teste5</string>
+     <string>-5 T3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_plus_t3">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>310</y>
+      <width>51</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>+5 T3</string>
     </property>
    </widget>
   </widget>

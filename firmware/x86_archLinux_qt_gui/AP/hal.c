@@ -33,7 +33,7 @@ void InitHAL(){
     pin_s22 = 0;
     pin_pump = 0;
 
-    temp = 0;
+    temp = 49;
     pin_b1 = 0;
     pin_sb11 = 0;
     pin_sb12 = 0;
@@ -84,7 +84,7 @@ uint64_t now(){
 }
 
 uint16_t valvePause(){
-    return 5000;
+    return 100;
 }
 
 uint8_t sb11(){
